@@ -47,6 +47,8 @@ void moveStackDown(void)
 
 int main(void)
 {
+    float PI = 3.1415;
+
     int opcion = 0;
     float nro;
     float resultado;
@@ -84,7 +86,8 @@ int main(void)
                 imprimirStack();
                 resultado = stack[1] + stack[0];
                 moveStackUp();
-                stack[0] = round(resultado);
+                stack[0] = resultado;
+                resultado = 0;
                 printf("\033[2J");
                 break;
 
@@ -92,7 +95,8 @@ int main(void)
                 imprimirStack();
                 resultado = stack[1] - stack[0];
                 moveStackUp();
-                stack[0] = round(resultado);
+                stack[0] = resultado;
+                resultado = 0;
                 printf("\033[2J");
                 break;
 
@@ -100,7 +104,8 @@ int main(void)
                 imprimirStack();
                 resultado = stack[1] * stack[0];
                 moveStackUp();
-                stack[0] = round(resultado);
+                stack[0] = resultado;
+                resultado = 0;
                 printf("\033[2J");
                 break;
 
@@ -111,7 +116,8 @@ int main(void)
 
                     resultado = stack[1] / stack[0];
                     moveStackUp();
-                    stack[0] = round(resultado);
+                    stack[0] = resultado;
+                    resultado = 0;
                     printf("\033[2J");
                 }
                 else
@@ -127,7 +133,8 @@ int main(void)
                 if (stack[0] > 0)
                 {
                     resultado = sqrt(stack[0]);
-                    stack[0] = round(resultado);
+                    stack[0] = resultado;
+                    resultado = 0;
                     printf("\033[2J");
                 }
                 else
@@ -142,21 +149,24 @@ int main(void)
                 imprimirStack();
                 resultado = pow(stack[1], stack[0]);
                 moveStackUp();
-                stack[0] = round(resultado);
+                stack[0] = resultado;
+                resultado = 0;
                 printf("\033[2J");
                 break;
 
             case 's': // Seno
                 imprimirStack();
-                resultado = sin(stack[0]);
-                stack[0] = round(resultado);
+                resultado = sin(stack[0] * (PI / 180));
+                stack[0] = resultado;
+                resultado = 0;
                 printf("\033[2J");
                 break;
 
             case 'c': // Coseno
                 imprimirStack();
-                resultado = cos(stack[0]);
+                resultado = cos(stack[0] * (PI / 180));
                 stack[0] = resultado;
+                resultado = 0;
                 printf("\033[2J");
                 break;
 
@@ -164,8 +174,9 @@ int main(void)
                 imprimirStack();
                 if (stack[0] != 90)
                 {
-                    resultado = tan(stack[0]);
-                    stack[0] = round(resultado);
+                    resultado = tan(stack[0] * (PI / 180));
+                    stack[0] = resultado;
+                    resultado = 0;
                     printf("\033[2J");
                 }
                 else
